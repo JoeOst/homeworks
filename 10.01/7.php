@@ -1,8 +1,6 @@
 <?php 
 	function sieveOfEratosthenes($num) {
-		for ($i = 2; $i < $num; $i++) {
-			$primes[$i] = true;
-    	}
+		$primes = array_fill(2,$num,true);
 		
 		for ($n = 2; $n < $num; $n++) {
 			if ($primes[$n]) {
