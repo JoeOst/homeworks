@@ -4,23 +4,32 @@
 	
 	
 	foreach ($file as $value) {
-		$name = strstr($value,':',true);
-		$names[] = $name;
-		
-		
-		//$arr[$name] = $email;
+		$file_explode[] = explode(":", $value);
 	}
 	
-	$countName = array_count_values($names);
-	echo "<pre>";
-	 print_r($file);
-	 print_r($names);
-	 print_r($countName);
-	 echo "</pre>";
+	
+	for ($i=0; $i < count($file_explode); $i++) { 
+		$email = trim($file_explode[$i][2]);
+		$name = trim($file_explode[$i][0]);
+		foreach ($file_explode as $key => $value) {
+			
+			if ($key != $i && trim($value[2]) == $email) {
 
-	 foreach ($variable as $key => $value) {
-	 	# code...
-	 }
-
+				unset($file_explode[$key]);
+			}
+			if ($key != $i && trim($value[0]) == $name) {
+				unset($file_explode[$key]);
+				
+			}
+		}
+	}
+	foreach ($file_explode as $key => $value) {
+		$newFile[] = implode(":",$value);
+	}
+	
+	$openFile = fopen("user.txt",w);
+	foreach ($newFile as  $value) {
+		fwrite($openFile, $value);
+	}
 	
 ?>

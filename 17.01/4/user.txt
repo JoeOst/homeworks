@@ -1,6 +1,3 @@
 Dan:123123:dan@gmail.com
 Sunny:coffee:jungson@ya.ua
 Bobby:hollup:bobbyikon@gmail.com
-Sunny:1111:sun@i.ua
-Lola:1111:jungson@ya.ua
-Dori:1111:jungson@ya.ua
